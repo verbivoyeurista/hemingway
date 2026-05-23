@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hemingway</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Hemingway</h1>
+      <p class="subtitle">Apply a pattern to text. Get content that conforms.</p>
+    </header>
+
+    <section class="input-area">
+      <div class="field">
+        <label for="library-select">Pattern</label>
+        <select id="library-select">
+          <option value="notifications">Notifications</option>
+        </select>
+        <p class="hint" id="pattern-hint"></p>
+      </div>
+
+      <div class="field">
+        <label for="input-text">Your draft or brief</label>
+        <textarea
+          id="input-text"
+          rows="6"
+          placeholder="Paste a draft notification, or describe what you want to write..."></textarea>
+      </div>
+
+      <button id="rewrite-btn" type="button">Rewrite</button>
+      <p class="status" id="status"></p>
+    </section>
+
+    <section class="output-area" id="output-area" hidden>
+      <div class="output-block">
+        <h2>Rewrite</h2>
+        <div id="rewrite-output" class="rewrite"></div>
+      </div>
+      <div class="output-block">
+        <h2>Grade</h2>
+        <ul id="grade-output" class="grade"></ul>
+      </div>
+    </section>
+
+    <footer>
+      <p class="meta">v0 &middot; Library: <span id="library-count">1</span> pattern loaded.</p>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

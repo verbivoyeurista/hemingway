@@ -1,0 +1,129 @@
+{
+  "standard": "notifications",
+  "domain": "grc",
+  "scope": {
+    "applies_to": "Internal employee-facing notifications from Risk & Compliance programs (certifications, privacy waves, safeguard reminders, compliance alerts)",
+    "excludes": [
+      "External user-facing notifications",
+      "System-generated error messages",
+      "Automated build/deploy alerts"
+    ]
+  },
+  "required_elements": {
+    "description": "Every notification must contain these elements. No required order — the LLM determines natural sentence structure per notification.",
+    "elements": [
+      "Role-aware address — the reader should understand why they're receiving this and what their role is in the process. Do NOT default to 'As a [role]' — that reads like a form template. Instead, use one of these methods: (1) Context: 'You were identified by [name] as a SME on [purpose]' — use when the reader may not know why they're getting this. (2) Implied by action: 'Complete your open reviews' — use when the action itself is role-specific and the reader already knows their role. (3) Possession: 'Your team has 3 unresolved requirements' — use when the reader owns something. Only use 'As a [role]' when the reader genuinely might not know which hat they're wearing (e.g., someone who holds multiple roles in the same system).",
+      "Action — what the reader needs to do, verb-first (e.g., 'Complete your reviews', 'Review the findings')",
+      "Reason — why this matters, one sentence (business or compliance reason)",
+      "Time — deadline or SLA with consequence of missing it",
+      "Link — if the notification asks the reader to DO something or reminds them to complete something, a linked destination is mandatory, embedded in the action sentence (e.g., 'Complete your reviews at your [certifications page](https://www.internalfb.com/certifications)'). Informational or confirmation notifications do not require a link."
+    ]
+  },
+  "rules": [
+    "First sentence must contain the action (BLUF). Exception: if the notification has an urgency indicator (DEADLINE APPROACHING, PAST DUE, Red Alert, etc.), lead with the urgency status, then the action immediately after. The alert tells the reader how urgent; the action tells them what to do.",
+    "Keep total length under 5 sentences",
+    "Every sentence should be a complete thought — no asides tacked on with em dashes, parentheticals, or mid-sentence pivots. If you need a dash, you're cramming two ideas into one sentence. Split them or cut the aside.",
+    "If the notification asks the reader to do or complete something, a link is mandatory and embedded in the action sentence",
+    "Informational and confirmation notifications do not require a link",
+    "State consequences of inaction — what happens if ignored, written in active voice with the reader as the subject. Good: 'No response in 3 days triggers manager escalation.' Bad: 'Unresponded requests escalate to your manager.' The reader should feel the consequence is about them, not about the request.",
+    "Use [project_name] in the status lead (human-readable context), [lama_id] in the CTA link (precise navigation). Format: [project_name] [status]. [what happened]. [Open lama_id]",
+    "No redundant notifications — if another channel already delivers this message, flag for consolidation"
+  ],
+  "subject_header_rules": {
+    "description": "Every notification should have a subject line or header. For email this is the subject field. For workplace posts this is the post title. For chat, the subject IS the message (no separate header needed).",
+    "rules": [
+      "Under 60 characters (email preview cutoff)",
+      "Must contain the core action or status — no generic subjects like 'Reminder' or 'Update'",
+      "Scannable without opening — the reader knows what to do from the subject alone",
+      "For action/reminder types: include the deadline if possible",
+      "For confirmation types: confirm what was completed"
+    ],
+    "good_examples": [
+      "Your privacy certification reviews are due in 5 days.",
+      "FTC Privacy Certifications: Your H1 2026 cycle starts today.",
+      "Privacy Certifications: Your review was submitted successfully.",
+      "Your remediation plan review is overdue."
+    ],
+    "bad_examples": [
+      "Reminder",
+      "Action Required",
+      "Update from the Privacy Team",
+      "Important: Please Read",
+      "The FTC Privacy Certifications Cycle begins today."
+    ]
+  },
+  "notification_types": {
+    "action": {
+      "description": "Reader must do something (complete, review, submit, navigate, visit)",
+      "link": "mandatory — embedded in the action sentence",
+      "example": "Complete your open reviews at your [certifications page](https://www.internalfb.com/certifications) by [date]. Late submissions trigger escalation to your sub-certifier."
+    },
+    "reminder": {
+      "description": "Reader was already asked to do something and hasn't done it",
+      "link": "mandatory — same as action",
+      "example": "Your privacy certification reviews are due in 2 days ([date]). Complete your reviews at your [certifications page](https://www.internalfb.com/certifications) now. Late submissions trigger escalation."
+    },
+    "informational": {
+      "description": "Reader needs to know something (policy update, status change)",
+      "link": "optional — for 'learn more'",
+      "example": "Meta's Anti-Corruption Policy has been updated to be clearer and more inclusive. [Review the updated policy](link)."
+    },
+    "confirmation": {
+      "description": "Reader did something and this confirms it (submission received, badge earned)",
+      "link": "not required",
+      "example": "[name], your [role] review has been submitted successfully. Thank you for supporting Meta's FTC privacy obligations."
+    }
+  },
+  "known_links": {
+    "certifications_page": "https://www.internalfb.com/certifications",
+    "grc_platform": "https://www.internalfb.com/grc",
+    "tpa_portal": "https://www.internalfb.com/tpa"
+  },
+  "good_examples": [
+    "Complete your open reviews at your [certifications page](https://www.internalfb.com/certifications) by May 15. Late submissions delay your team's certification and may trigger VP escalation.",
+    "Your team has 3 unresolved safeguard requirements from the Q1 cycle. Review and respond by April 30 at your [certifications page](https://www.internalfb.com/certifications). Unresolved items will be flagged in the next FTC certification report.",
+    "You were identified by [name] as a SME on [purpose]. Your input is required to ensure [business_impact]. Respond in your [assigned task](link) by [date] or let us know you're not the right SME. Requests with no response escalate to your manager after 3 days.",
+    "[name], your [role] review has been submitted successfully. Thank you for supporting Meta's FTC privacy obligations.",
+    "Meta's Anti-Corruption Policy has been updated to be clearer and more inclusive. [Review the updated policy](link).",
+    "[project_name] is blocked. Your review needs input. [Open lama_id]"
+  ],
+  "bad_examples": [
+    "Hello! This is a reminder that the certifications program is underway. Please take a moment to review your responsibilities and ensure timely completion. For more information, visit the wiki or reach out to your program lead. Thank you for your attention to this important matter. — No BLUF, no role, no deadline, no consequence, filler greeting and closing.",
+    "As a subject matter expert, respond to the regulatory inquiry in your assigned task by Friday. — 'As a [role]' feels like a form template. Use context instead: say who tagged them and why.",
+    "Complete your reviews at your certifications page. — Action notification with no link. Where is the certifications page?",
+    "Unresponded requests escalate to your manager after 3 days. — Passive consequence. The escalation happens to 'requests,' not to the reader. Better: 'No response in 3 days triggers manager escalation.'",
+    "REMINDER: Certification cycle. Please complete ASAP. See wiki for details. Contact your lead with questions. — No role, no specific deadline, 'ASAP' is not a deadline, multiple links instead of one."
+  ],
+  "consolidation_rules": {
+    "description": "Prefer variables over duplicate entries. One notification template with variables is better than multiple near-identical entries.",
+    "rules": [
+      "If the only difference between notifications is the audience name, use a single entry with audience as a variable: [Supporting Reps, Reps, Sub-certifiers]",
+      "If the only difference is a timing number (2 days, 5 days), use [X] days as a variable in one entry",
+      "If the only difference is a risk tier or outcome category, use a bracketed variable with options listed: [High IRR=..., Low IRR=..., Med IRR=...]",
+      "If the same notification goes to chat AND email, consolidate to one row with 'Chat, Email' in the channel column",
+      "If an email has a separate subject line and body entry, merge into one row with subject in Subject_Header column",
+      "Keep notifications separate when the content, tone, or consequence genuinely differs (e.g., Overdue vs Reminder — different urgency)"
+    ]
+  },
+  "redundancy_checks": [
+    "Does this same information go out via another channel (email AND gchat AND in-app)?",
+    "Is this a repeat of a notification sent within the last 7 days with no new information?",
+    "Does the recipient already have a task assigned for this same action?",
+    "Is there a chat AND email version saying the exact same thing?",
+    "Is there a near-identical notification for a different audience that could use an audience variable?",
+    "Is there a near-identical notification for a different timing that could use a timing variable?"
+  ],
+  "evaluation_rules": [
+    "Check required elements: does the notification contain role, action, reason, time? (link only if action/reminder type)",
+    "Check link: if action or reminder type, is a link embedded in the action sentence?",
+    "Check BLUF: does the first sentence contain the action?",
+    "Check length: over 5 sentences = too long",
+    "Flag redundancy: does this duplicate another notification on a different channel?",
+    "Flag consolidation: could this be merged with a near-identical notification using a variable?",
+    "Classify type: action (reader must do something), reminder (reader was already asked and hasn't done it), informational (no action required — status updates, policy changes, regulatory disclosures), or confirmation (acknowledges completed action). Regulatory disclosure notices (e.g., annual privacy notices, terms updates, policy change announcements) are informational, not reminders — they don't ask the reader to act and have no consequence of inaction."
+  ],
+  "constraints": {
+    "max_sentences": 5,
+    "channels": ["email", "gchat", "in-app (RCM)", "tasks"]
+  }
+}
