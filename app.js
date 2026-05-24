@@ -162,7 +162,8 @@
       const result = await rewrite(input, name, pattern);
       els.rewriteOutput.textContent = result.rewrite || "(no rewrite returned)";
       const checks = gradeMechanical(result.rewrite || "", pattern);
-      renderGrade(checks, result.notes || []);
+      const notes = Array.isArray(result.notes) ? result.notes : (result.notes ? [result.notes] : []);
+renderGrade(checks, notes);
       els.outputArea.hidden = false;
       setStatus("");
     } catch (e) {

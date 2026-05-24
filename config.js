@@ -22,7 +22,7 @@
 // urgency lead). Server-side grading can return richer notes in `notes`.
 
 window.HEMINGWAY_CONFIG = {
-  MODE: "mock",                                // "mock" | "api"
-  API_ENDPOINT: "",                            // e.g. "https://your-worker.example.workers.dev/rewrite"
+  MODE: "api",                                // "mock" | "api"
+  API_ENDPOINT: "https://hemingway-api.verbivoyeurista.workers.dev",                            // e.g. "https://your-worker.example.workers.dev/rewrite"
   LIBRARY_ENTRIES: ["notifications"],          // patterns available in the selector
 };
