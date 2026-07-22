@@ -1,0 +1,67 @@
+{
+  "name": "venmo_voice",
+  "brand": "Venmo",
+  "kind": "derived_brand_guideline",
+  "_provenance": {
+    "method": "CURATED extraction — fingerprinted from shipped strings, then filtered to voice-bearing. The filter IS the authorship: deciding which strings count as voice is the CD judgment. Not 'just extracted' — curated, and the curation is the value (Wren review 2026-07-16).",
+    "source": "~/hemingway/library/venmo_strings.txt (6,838 clean strings; 2,718 voice-bearing)",
+    "extracted": "2026-07-16",
+    "reading": "This is the VOICE (constant — who Venmo is), and it is a BASELINE (descriptive: what Venmo sounds like on average), NOT a target (prescriptive: what good looks like). Shipped != good — a corpus carries legacy / deadline / A-B-loser strings. good_examples must be a CURATED GOLDEN SUBSET, not the whole corpus.",
+    "why_held": "observed / derived — nobody agreed to these rules, they were derived from the corpus. Carry LOWER confidence than authored rules (not why_held:consensus).",
+    "note": "corpus has de-ID concatenation artifacts (eaten spaces: 'findbank', 'createteen'); voice signal unaffected, but clean before using strings verbatim"
+  },
+  "fingerprint": {
+    "avg_words": 12.0,
+    "second_person_you_pct": 61,
+    "first_person_we_pct": 18,
+    "contraction_pct": 29,
+    "imperative_start_pct": 11,
+    "exclamation_pct": 4,
+    "question_pct": 3,
+    "top_openers": ["Your", "You", "We", "This", "The", "Please"]
+  },
+  "voice_principles": [
+    {
+      "principle": "Second person, always. Talk TO the user, not about them.",
+      "evidence": "61% of voice-bearing strings use you/your; the two most common openers are 'Your' (211) and 'You' (173).",
+      "examples": ["Does this info look right?", "You can find your bank account number on your bank statement or check."]
+    },
+    {
+      "principle": "The brand is a 'we' that helps — present, doing things alongside you, never a faceless system.",
+      "evidence": "18% use we/our; 'We' is the #3 opener (158); the pattern is 'We'll…' (we act on your behalf).",
+      "examples": ["We'll let your parent or guardian know that there's an issue.", "If there isn't enough, we'll use your bank to make the full payment."]
+    },
+    {
+      "principle": "Plain and short. Clarity over cleverness.",
+      "evidence": "~12 words per string on average; 11% imperative (guides, doesn't command).",
+      "examples": ["Log in to your bank account to get things reconnected.", "Tap to manage the balance"]
+    },
+    {
+      "principle": "Casual and contracted — friendly, human, not formal.",
+      "evidence": "29% of strings use contractions (we'll, you'll, it's).",
+      "examples": ["This is how we'll refer to you and how you'll show up in the app."]
+    },
+    {
+      "principle": "Explain the why on friction. When you ask for something sensitive, say why.",
+      "evidence": "Requests for personal data are paired with a reason rather than a bare demand.",
+      "examples": ["We need your legal name to make sure it's really you.", "Your location is necessary to use certain features and see more relevant results."]
+    },
+    {
+      "principle": "Reassure, don't alarm. On holds/issues: calm + a next step, never blame.",
+      "evidence": "Exclamation only 4%; questions only 3% — restrained affect even on problems.",
+      "examples": ["We place holds on payments for different reasons. Please check your notifications or transaction details for more info."]
+    },
+    {
+      "principle": "Delight is sparing and earned — a rare whimsical moment, never forced.",
+      "evidence": "Playful lines are the exception buried among transactional strings, not the default register.",
+      "examples": ["Virtual carrier pigeons delivered your invitations."]
+    }
+  ],
+  "avoid": [
+    "Hype and exclamation-stacking (baseline exclamation is only 4%)",
+    "Title Case (sentence case is the norm)",
+    "Jargon / formal register (contractions are the norm)",
+    "Alarming or blaming tone on holds, errors, and identity checks",
+    "Talking ABOUT the user in third person (the voice is second-person)"
+  ]
+}

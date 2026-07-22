@@ -1,0 +1,224 @@
+{
+  "name": "venmo_tone_profiles",
+  "brand": "Venmo",
+  "kind": "derived_tone_profile",
+  "_provenance": {
+    "method": "COMPOSED from the hand-marked golden set. The golden picks are the authorship (Brittney's editorial call); facet chips are the primitives; closers are the tone tells. Nothing asserted -- every field is a count or a pulled example.",
+    "source": "hemingway/library/golden_set.json",
+    "reading": "This is TONE (flexes by audience/situation), overlaid on the constant VOICE (venmo_voice_extracted.json). MARKED not fingerprinted: tone can't be extracted statistically, it is decided. That is why a small golden set is the honest method.",
+    "why_held": "authored -- a human marked which strings count. Carries HIGHER confidence than the voice baseline (observed/derived).",
+    "confidence_vs_voice": "voice = descriptive baseline (low); tone = prescriptive golden subset (higher, because authored)."
+  },
+  "teen": {
+    "audience": "teen",
+    "n_golden": 5,
+    "events": [
+      "card_locked",
+      "card_unlocked",
+      "account_restricted",
+      "card_canceled",
+      "pin_changed"
+    ],
+    "facet_profile": {
+      "intent": {
+        "counts": {
+          "inform": 3,
+          "reassure": 2,
+          "celebrate": 1,
+          "alert": 1
+        },
+        "dominant": [
+          "inform",
+          "reassure",
+          "celebrate",
+          "alert"
+        ]
+      },
+      "role": {
+        "counts": {
+          "teen-user": 5,
+          "direct-address": 3
+        },
+        "dominant": [
+          "teen-user",
+          "direct-address"
+        ]
+      },
+      "tone": {
+        "counts": {
+          "calm": 3,
+          "playful": 2
+        },
+        "dominant": [
+          "calm",
+          "playful"
+        ]
+      },
+      "stakes": {
+        "counts": {
+          "high-stakes": 2
+        },
+        "dominant": [
+          "high-stakes"
+        ]
+      },
+      "signal": {
+        "counts": {
+          "update": 3,
+          "needs-action": 2
+        },
+        "dominant": [
+          "update",
+          "needs-action"
+        ]
+      }
+    },
+    "actor_framing": {
+      "named_guardian_acts": 3,
+      "reader_is_actor": 0,
+      "defers_to_guardian": 2
+    },
+    "closer_tells": {
+      "n_closers": 5,
+      "n_empty": 0,
+      "emoji_closers": [
+        "You can use your debit card again. 🤘🙌🖖"
+      ],
+      "delight_closers": [
+        "Already have it? You rock and can ignore this email."
+      ],
+      "guardian_deferral_closers": [
+        "For help getting up and running again, ask your parent or guardian to contact us.",
+        "Not sure why? Your parent or guardian might have more info."
+      ],
+      "avg_closer_words": 10.6,
+      "all_closers": {
+        "card_locked": "Card transactions will be declined until Judy unlocks it.",
+        "card_unlocked": "You can use your debit card again. 🤘🙌🖖",
+        "account_restricted": "For help getting up and running again, ask your parent or guardian to contact us.",
+        "card_canceled": "Not sure why? Your parent or guardian might have more info.",
+        "pin_changed": "Already have it? You rock and can ignore this email."
+      }
+    }
+  },
+  "parent": {
+    "audience": "parent",
+    "n_golden": 4,
+    "events": [
+      "card_locked",
+      "card_unlocked",
+      "account_restricted",
+      "card_canceled"
+    ],
+    "facet_profile": {
+      "intent": {
+        "counts": {
+          "inform": 4,
+          "alert": 1
+        },
+        "dominant": [
+          "inform",
+          "alert"
+        ]
+      },
+      "role": {
+        "counts": {
+          "parent-overseer": 4,
+          "about-the-teen": 4
+        },
+        "dominant": [
+          "parent-overseer",
+          "about-the-teen"
+        ]
+      },
+      "tone": {
+        "counts": {
+          "calm": 4
+        },
+        "dominant": [
+          "calm"
+        ]
+      },
+      "stakes": {
+        "counts": {
+          "high-stakes": 1
+        },
+        "dominant": [
+          "high-stakes"
+        ]
+      },
+      "signal": {
+        "counts": {
+          "update": 2,
+          "needs-action": 2
+        },
+        "dominant": [
+          "update",
+          "needs-action"
+        ]
+      }
+    },
+    "actor_framing": {
+      "named_guardian_acts": 2,
+      "reader_is_actor": 2,
+      "defers_to_guardian": 0
+    },
+    "closer_tells": {
+      "n_closers": 3,
+      "n_empty": 1,
+      "emoji_closers": [],
+      "delight_closers": [],
+      "guardian_deferral_closers": [],
+      "avg_closer_words": 11.0,
+      "all_closers": {
+        "card_locked": "In the meantime, [teen_name] can still send and receive payments in the Venmo app.",
+        "account_restricted": "For help unlocking your accounts, give us a call.",
+        "card_canceled": "If you didn't request this or have questions, contact us."
+      }
+    }
+  },
+  "voice_held_tone_flexed": {
+    "held": {
+      "stakes": [
+        "high-stakes"
+      ],
+      "signal": [
+        "needs-action",
+        "update"
+      ]
+    },
+    "flexed": {
+      "intent": {
+        "shared": [
+          "alert",
+          "inform"
+        ],
+        "teen_adds": [
+          "celebrate",
+          "reassure"
+        ],
+        "parent_adds": []
+      },
+      "role": {
+        "shared": [],
+        "teen_adds": [
+          "direct-address",
+          "teen-user"
+        ],
+        "parent_adds": [
+          "about-the-teen",
+          "parent-overseer"
+        ]
+      },
+      "tone": {
+        "shared": [
+          "calm"
+        ],
+        "teen_adds": [
+          "playful"
+        ],
+        "parent_adds": []
+      }
+    }
+  }
+}

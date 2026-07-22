@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "title": "Hemingway — compositional demo",
+    "thesis": "Same facts. Neutral has no knowledge base. +Voice adds who Venmo is (held constant). +Tone adds how Venmo flexes (by audience, or by how the writer signals the moment).",
+    "voice_source": "venmo_voice_extracted.json (fingerprinted baseline)",
+    "tone_source": "tone_profiles.json (hand-marked golden set)",
+    "reading": "The +voice column is IDENTICAL across variants — that is voice held. The +tone columns DIVERGE — that is tone flexed. The hero is a controlled ablation (knowledge base in the room vs. out of it), not a live competitor."
+  },
+  "events": [
+    {
+      "event": "card_locked",
+      "label": "Card locked",
+      "flex_axis": "audience",
+      "facts": "A parent locked the teen's Venmo debit card. It can't be used for purchases until it's unlocked. The teen can still send and receive money in the app.",
+      "neutral": "This debit card has been locked and cannot be used for purchases until it is unlocked. Sending and receiving payments remains available.",
+      "voice": "Your debit card is locked, so it can't be used for purchases right now. You can still send and receive money in the app.",
+      "variants": [
+        {
+          "key": "teen",
+          "label": "→ teen",
+          "tone": "calm",
+          "copy": "Judy locked your debit card. Card transactions will be declined until Judy unlocks it — you can still send and receive money in the app.",
+          "tells": ["names the guardian as the actor — no blame", "calm, factual", "voice held: 2nd person, contraction, plain"]
+        },
+        {
+          "key": "parent",
+          "label": "→ parent",
+          "tone": "calm",
+          "copy": "You locked [teen]'s debit card. In the meantime, they can still send and receive payments in the Venmo app.",
+          "tells": ["'you' = the actor (overseer frame)", "about the teen, not to them", "dry closer, no emoji"]
+        }
+      ],
+      "flex_note": "Voice is identical. Tone is calm for both — but the FRAME mirrors: the teen is told a guardian acted on them; the parent is told they acted. Same fact, opposite point of view."
+    },
+    {
+      "event": "card_unlocked",
+      "label": "Card unlocked",
+      "flex_axis": "audience",
+      "hero": true,
+      "facts": "A parent unlocked the teen's debit card. It can be used for purchases again.",
+      "neutral": "This debit card has been unlocked and can be used for purchases again.",
+      "voice": "Your debit card is unlocked, so you can use it for purchases again.",
+      "variants": [
+        {
+          "key": "teen",
+          "label": "→ teen",
+          "tone": "playful",
+          "copy": "Judy unlocked your debit card. You can use your debit card again. 🤘🙌🖖",
+          "tells": ["emoji closer — the compact tone tell", "relief earns a little warmth", "voice held: still 2nd person, plain"]
+        },
+        {
+          "key": "parent",
+          "label": "→ parent",
+          "tone": "calm",
+          "copy": "You unlocked [teen]'s debit card. They can make card purchases again.",
+          "tells": ["calm, dry — no emoji", "about the teen", "same relief, restrained register"]
+        }
+      ],
+      "flex_note": "★ The split. +Voice is one line, shared by both. +Tone diverges: the teen earns the emoji and the lift (playful); the parent gets the same news, calm and dry. Voice held, tone flexed."
+    },
+    {
+      "event": "account_restricted",
+      "label": "Account restricted (security flag)",
+      "flex_axis": "audience",
+      "facts": "The account was restricted after activity was flagged. The app and debit card can't be used. Resolving it means contacting Venmo — a teen routes through a parent/guardian; a parent calls.",
+      "neutral": "This account has been restricted due to flagged activity. The Venmo app and debit card cannot be used until the restriction is resolved.",
+      "voice": "Your access to the Venmo app and debit card is restricted right now. We flag activity like this to keep Venmo safe — here's how to get it sorted.",
+      "variants": [
+        {
+          "key": "teen",
+          "label": "→ teen",
+          "tone": "calm",
+          "copy": "Your access to the Venmo app and debit card have been restricted. For help getting up and running again, ask your parent or guardian to contact us.",
+          "tells": ["calm on an alarming event — reassure, don't alarm", "routes the teen up to a guardian", "voice holds under pressure"]
+        },
+        {
+          "key": "parent",
+          "label": "→ parent",
+          "tone": "calm",
+          "copy": "Activity on [teen]'s account triggered an alert, so this account and any linked accounts are restricted. For help unlocking your accounts, give us a call.",
+          "tells": ["adult-to-adult authority register", "actionable: call us", "calm, no blame"]
+        }
+      ],
+      "flex_note": "The stress test: the VOICE holds even when the event is scary. Tone stays calm for both (reassure-don't-alarm) — what flexes is the ROUTE: teen → ask your guardian; parent → call us."
+    },
+    {
+      "event": "account_restricted_age",
+      "label": "Account restricted (age) — the reframe",
+      "flex_axis": "framing",
+      "hero": true,
+      "facts": "The teen signed up for an adult account but doesn't meet the age requirements, so it's restricted. To continue they close it and set up a teen account from their parent's invite. (The account is inactive during the downgrade — so this is really an onboarding fail-state.)",
+      "neutral": "This account does not meet the age requirements and has been restricted. To continue, close it and set up a new account.",
+      "voice": "Your account doesn't meet the age requirements, so it's been restricted. Close it and you can set up the right one.",
+      "variants": [
+        {
+          "key": "needs_action",
+          "label": "signaled as needs_action",
+          "tone": "calm",
+          "copy": "Your account has been restricted because you don't meet the age requirements. Close this account to continue — you'll need to set up a new one.",
+          "tells": ["framed as a cold compliance restriction", "calm, correct, no warmth", "the honest 'bad news' reading"]
+        },
+        {
+          "key": "onboarding",
+          "label": "signaled as onboarding ★",
+          "tone": "calm",
+          "copy": "Your old account has been restricted, but you have a new one waiting. Close it to get started — then use the invite your parent or guardian sent. Why the restriction? You don't meet the age requirements for your existing account.",
+          "tells": ["reframed with a path forward — not a dead end", "acknowledges the bad moment without fake cheer", "stays calm and plain — the system knows NOT to be playful here"]
+        }
+      ],
+      "flex_note": "The restraint beat: same bad news. Cold as a needs_action compliance restriction; steady with a path forward as an onboarding — but never playful. The intelligence is knowing the ceiling: a kid aged out is a genuinely bad experience, so warmth here means a clear way forward, not delight."
+    }
+  ]
+}

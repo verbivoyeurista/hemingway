@@ -1,0 +1,247 @@
+{
+  "_provenance": {
+    "source": "Figma furlough file ccP0DO4JP3xIFacyz0ZWFr, page '~~~~ Welcome ~~~~~' (458:152384), board 'Teen emails' (1260:44934)",
+    "extracted": "2026-07-17",
+    "method": "Parsed the saved get_metadata XML (text lives in node name= attributes) to enumerate every template, then read the rendered COPY (subject / preheader / hero / interstitial headline / body) from targeted get_screenshot renders of the web 'Gmail inbox template' (1024w, carries the subject line in the mock browser tab) and the mobile templates (Cakepop_txn_MB_NEW / Email template C / Teen_ChangePIN, 375w). Copy is verbatim from the rendered screenshots.",
+    "board_layout_note": "One board only. There is no separate 'parent' board to the right — the whole board is 53559px wide and organized left-to-right into category sections (Progress Tag labels): Debit card, Purchases, Direct deposit, P2P, Adding FI, Account status, Teen account security, Privacy, Downgrade. Each email exists as a WEB render (Gmail, ~1024w, on top) plus one or more MOBILE renders (~375w) of the same copy. Parent-facing vs teen-facing variants sit as separate mobile frames in the same column (e.g. Account status has a teen 'Your activity has been flagged' AND a parent 'Your Venmo accounts have been restricted'). Absolute-x note: metadata x for the board is -91793; positions below are relative node ids.",
+    "annotations_on_board": [
+      "'Email templates we can use: A, B, D  Other templates considered: C, G' (design-decision note near the board title)",
+      "'Teen added a backup FI (parent and teen - 2 emails to write) Given I am an adult (18+) Venmo user Parent | When my Teen has added an FI to their account | Then I receive an email detailing that the teen added an FI and explaining what type it is (credit card, debit card, or bank) and the last 4 digits of the FI number' (user story pinned to the Adding-FI column; the parent version was planned but only stubbed — see backup_fi_added parent stub)"
+    ]
+  },
+  "emails": [
+    {
+      "template_id": "1260:44957",
+      "template_name": "Gmail inbox template (Debit card / shipped)",
+      "audience": "teen",
+      "event": "card_shipped",
+      "subject": "Your debit card is on its way!",
+      "preheader": "Where will you use it first?",
+      "hero": "Hooray! Your card should arrive by March 5, 2022.",
+      "body": "We sent it to:\n3606 Egale Drive, Apt 123\nWashtenaw, MI 48104\n\nOnce it arrives, ask your parent or guardian to activate it via their app.\n\nIf it hasn’t arrived a few days after the expected date, tell them to let us know.",
+      "notes": "Web render read at 1260:44957. Address block is placeholder sample data."
+    },
+    {
+      "template_id": "1260:45079",
+      "template_name": "Gmail inbox template (Debit card / activated)",
+      "audience": "teen",
+      "event": "card_activated",
+      "subject": "Your card is activated",
+      "preheader": "You can start spending!",
+      "hero": "Your Venmo Debit Card is now activated.",
+      "body": "Remember—even though the card is yours, Judy can still see your transactions and lock your card.",
+      "notes": "'Judy' is the sample parent/guardian name used throughout the teen emails."
+    },
+    {
+      "template_id": "1260:45207",
+      "template_name": "Gmail inbox template (Debit card / unlocked)",
+      "audience": "teen",
+      "event": "card_unlocked",
+      "subject": "Your debit card is unlocked",
+      "preheader": "The card ending in {{ last_four }} is now unlocked.",
+      "hero": "Judy unlocked your debit card.",
+      "body": "You can use your debit card again. 🤘🙌🖖",
+      "notes": ""
+    },
+    {
+      "template_id": "1260:45896",
+      "template_name": "Gmail inbox template (Debit card / locked)",
+      "audience": "teen",
+      "event": "card_locked",
+      "subject": "Your debit card is locked",
+      "preheader": "You can’t use the card ending in -xxxx right now.",
+      "hero": "Judy locked your debit card.",
+      "body": "Card transactions will be declined until Judy unlocks it.",
+      "notes": ""
+    },
+    {
+      "template_id": "1260:45562",
+      "template_name": "Email template C (Debit card / canceled)",
+      "audience": "teen",
+      "event": "card_canceled",
+      "subject": "Your card was canceled",
+      "preheader": "Your Teen Debit Card can no longer be used.",
+      "hero": "Your Venmo Teen Debit Card is canceled.",
+      "body": "Not sure why?\nYour parent or guardian might have more info.",
+      "notes": "Mobile render read at 1260:45562. Web sibling at 1260:45650. Metadata also carries the parent-phrased body 'If Lucas tries to use their card, it’ll be declined but they’ll still be able to send and receive payments with their Venmo balance. You can unlock it any time in the Venmo app.' — an alternate/parent-oriented copy variant present on the board but not the shown teen render."
+    },
+    {
+      "template_id": "1260:45321",
+      "template_name": "Gmail inbox template (Debit card / PIN changed)",
+      "audience": "teen",
+      "event": "pin_changed",
+      "subject": "You have a new debit card PIN",
+      "preheader": "The PIN for the debit card ending in {{ last_four }} was changed.",
+      "hero": "Judy changed your debit card PIN.",
+      "body": "Don’t forget to get the new PIN from Judy. Already have it? You rock and can ignore this email.",
+      "notes": ""
+    },
+    {
+      "template_id": "1260:45449",
+      "template_name": "Gmail inbox template (Debit card / replaced)",
+      "audience": "teen",
+      "event": "card_replaced",
+      "subject": "Your new card is on its way!",
+      "preheader": "The replacement card is arriving soon.",
+      "hero": "Your replacement card will arrive by March 5, 2022.",
+      "body": "We sent it to:\n3606 Egale Drive, Apt 123\nWashtenaw, MI 48104\n\nIf your card doesn’t arrive by March 5 or something seems off (wrong name, say, or neither you nor your parent or guardian requested a new card) have them contact us.",
+      "notes": "Shares the subject 'Your new card is on its way!' with card_shipped but is the replacement variant (different hero + preheader). Mobile sibling at 1260:45497."
+    },
+    {
+      "template_id": "1260:46212",
+      "template_name": "Gmail inbox template (Debit card / phone number updated)",
+      "audience": "teen",
+      "event": "phone_number_updated",
+      "subject": "You updated your phone number",
+      "preheader": "Phone number updated for debit card ending in {{ last_four }}.",
+      "hero": "You successfully updated your phone number for your Venmo Debit Card.",
+      "body": "If this wasn’t you or you have questions, have your parent or guardian contact us.",
+      "notes": ""
+    },
+    {
+      "template_id": "1260:49710",
+      "template_name": "Gmail inbox template (Adding FI / backup FI added)",
+      "audience": "teen",
+      "event": "backup_fi_added",
+      "subject": "You added a [credit card]",
+      "preheader": "You can use this as a backup payment method.",
+      "hero": "You added the <credit card/debit card/bank account> ending in <last four numbers> as a payment method.",
+      "body": "Go to the app to view or edit this change.",
+      "notes": "CTA button 'Go to app'. Subject 'You added a [credit card]' has a bracketed placeholder for FI type. Mobile sibling at 1260:49639. Annotation on this column says a PARENT version is also required ('parent and teen - 2 emails to write') — see backup_fi_added parent stub 1260:49770."
+    },
+    {
+      "template_id": "1260:49770",
+      "template_name": "Cakepop_txn_MB_NEW (Adding FI / parent stub)",
+      "audience": "parent",
+      "event": "backup_fi_added",
+      "subject": "",
+      "preheader": "",
+      "hero": "We have an update on your Venmo account",
+      "body": "",
+      "notes": "INCOMPLETE / hidden frame (renders 1x1, layer hidden). Only the hero placeholder 'We have an update on your Venmo account' and the standard legal footer are present. This is the stubbed PARENT version of the backup-FI-added email called for by the pinned user story ('teen added an FI ... Then I (parent) receive an email detailing ... type ... and last 4 digits'). Body copy was not yet written."
+    },
+    {
+      "template_id": "1260:50088",
+      "template_name": "Email template C (Account status / activity flagged – teen)",
+      "audience": "teen",
+      "event": "account_restricted",
+      "subject": "Your activity has been flagged",
+      "preheader": "You won’t be able to use your debit card.",
+      "hero": "Your access to the Venmo app and debit card have been restricted.",
+      "body": "For help getting up and running again, ask your parent or guardian to contact us.\n\nAbout account restriction:\n• Flagging activity helps keep Venmo a safe place for all users.\n• To protect the account and prevent fraud, we can only provide a limited amount of info about a restricted account without talking to the account owner.\n• Security alerts are usually triggered by activity that goes against our User Agreement.",
+      "notes": "Teen-facing variant. Metadata also carries a parent-oriented line 'Add money to their account to get them up and running again.' present in this frame's node set (variant copy). Mobile sibling at 1260:50008."
+    },
+    {
+      "template_id": "1260:51195",
+      "template_name": "Email template C (Account status / accounts restricted – parent)",
+      "audience": "parent",
+      "event": "account_restricted",
+      "subject": "Your Venmo accounts have been restricted",
+      "preheader": "",
+      "hero": "Activity on your account for Lucas triggered an alert.",
+      "body": "For security reasons, this account and any linked accounts have been been restricted. For help unlocking your accounts, give us a call.\n\nAbout account restriction:\n• Flagging activity helps keep Venmo a safe place for all users.\n• To protect your account and prevent fraud, we can only provide a limited amount of information about a restricted account without talking to you.\n• Security alerts are usually triggered by activity that goes against our User Agreement.",
+      "notes": "Parent-facing variant: addresses the adult about the teen ('your account for Lucas', 'any linked accounts', 'talking to you'). CTA 'Contact us'. Note 'been been restricted' is a typo present in the source copy (both teen and parent variants). No preheader text node found for this frame."
+    },
+    {
+      "template_id": "1260:50783",
+      "template_name": "Teen_ChangePIN (Teen account security / password changed)",
+      "audience": "teen",
+      "event": "password_changed",
+      "subject": "You have a new password",
+      "preheader": "If you just changed it, you’re all set.",
+      "hero": "Out with the old, in with new. If that’s what you said to your last password, then you’re good 🙌.",
+      "body": "If this wasn’t you, do these two things:\n• Reset your password: Head to the sign-in screen on your app and tap “Forgot your password?” or go to www.venmo.com.\n• Tell your parent or guardian: They should give us a call so we can confirm your account is secure.",
+      "notes": ""
+    },
+    {
+      "template_id": "1260:50848",
+      "template_name": "Teen_ChangePIN (Teen account security / new device added)",
+      "audience": "teen",
+      "event": "device_added",
+      "subject": "You added a new device",
+      "preheader": "Way to make the change you want to see in the world",
+      "hero": "We see you strutting a new device. We’ll remember that this is yours now:",
+      "body": "iPhone added via Venmo App on Wednesday, May 17 at 09:36AM PDT\n\nWoah, wait—this wasn’t me. If you think someone is trying to access your account…\n\nTell your parent or guardian: They should contact customer support.\n\nReset your password: Head to your Venmo login and and tap “Forgot your password?”",
+      "notes": "Web sibling at 1260:51043. 'and and tap' is a typo present in the source copy. Preheader assignment ('Way to make the change...') is the best available match for this column; preheader text nodes on this board are loosely coupled to their frames."
+    },
+    {
+      "template_id": "1260:50977",
+      "template_name": "Teen_ChangePIN (Teen account security / new login attempt)",
+      "audience": "teen",
+      "event": "login_attempt",
+      "subject": "New login attempt",
+      "preheader": "Trying to log in from a new device or browser?",
+      "hero": "If this was you, no worries.",
+      "body": "But if it wasn’t, or you still need help logging in—read on.\n\nTrouble logging in\nNew phone number? Didn’t receive a 6-digit code? Ask your parents or guardian to contact support. We can help!\n\nThis wasn’t me\nIf you didn’t try to sign-in from a new device, protect your account by resetting your password. Just tap “Forgot your password?” on the login screen.\n\nWhy am I getting this email?\nFor your security, we notify you every time there’s a unique sign-in to your Venmo account (including from your phone’s web browser or after you’ve cleared cookies).",
+      "notes": "Web sibling at 1260:51143."
+    },
+    {
+      "template_id": "1260:50914",
+      "template_name": "Teen_ChangePIN (Privacy / search visibility changed)",
+      "audience": "teen",
+      "event": "privacy_search_visibility_changed",
+      "subject": "Privacy update",
+      "preheader": "Your visibility in search has changed",
+      "hero": "Your parent or guardian has changed your Search visibility.",
+      "body": "To check your search settings, go to Venmo, then Settings > Privacy > Search visibility.",
+      "notes": "CTA 'Go to Venmo'. Web sibling at 1260:51093."
+    },
+    {
+      "template_id": "1260:50561",
+      "template_name": "Email template C (verify email / welcome)",
+      "audience": "teen",
+      "event": "verify_email",
+      "subject": "Confirm your email Lucas",
+      "preheader": "Let’s get this Venmo party started 🥳",
+      "hero": "We’re happy you’re here",
+      "body": "Now all that’s left to do is verify your email address so we can let you know when you get paid.",
+      "notes": "CTA 'Confirm your email'. Onboarding/welcome email addressed to the teen (Lucas). Web sibling at 1260:50646. Preheader match 'Let’s get this Venmo party started' is the welcome-column preheader."
+    },
+    {
+      "template_id": "1260:51286",
+      "template_name": "Email template C (Downgrade / new account waiting)",
+      "audience": "teen",
+      "event": "account_downgrade_new_account",
+      "subject": "Your new Venmo account is waiting",
+      "preheader": "Close your restricted account to get it setup",
+      "hero": "Your old account has been restricted 😅, but…",
+      "body": "You have a new one waiting. To get started with it, close your restricted account.\n\nWhat’s next?\nOnce you close your account, return to the invite your parent or guardian sent or come back here to set up your account.\n\nWhy was my account restricted?\nYou don’t meet the age requirements for your existing account.",
+      "notes": "CTA 'Close account'. Age-out / downgrade flow. Mobile render read at 1260:51286."
+    }
+  ],
+  "pairs": [
+    {
+      "event": "account_restricted",
+      "teen_template_id": "1260:50088",
+      "parent_template_id": "1260:51195"
+    },
+    {
+      "event": "backup_fi_added",
+      "teen_template_id": "1260:49710",
+      "parent_template_id": "1260:49770"
+    }
+  ],
+  "unpaired": [
+    {"event": "card_shipped", "audience_present": "teen", "template_id": "1260:44957"},
+    {"event": "card_activated", "audience_present": "teen", "template_id": "1260:45079"},
+    {"event": "card_unlocked", "audience_present": "teen", "template_id": "1260:45207"},
+    {"event": "card_locked", "audience_present": "teen", "template_id": "1260:45896"},
+    {"event": "card_canceled", "audience_present": "teen", "template_id": "1260:45562"},
+    {"event": "pin_changed", "audience_present": "teen", "template_id": "1260:45321"},
+    {"event": "card_replaced", "audience_present": "teen", "template_id": "1260:45449"},
+    {"event": "phone_number_updated", "audience_present": "teen", "template_id": "1260:46212"},
+    {"event": "password_changed", "audience_present": "teen", "template_id": "1260:50783"},
+    {"event": "device_added", "audience_present": "teen", "template_id": "1260:50848"},
+    {"event": "login_attempt", "audience_present": "teen", "template_id": "1260:50977"},
+    {"event": "privacy_search_visibility_changed", "audience_present": "teen", "template_id": "1260:50914"},
+    {"event": "verify_email", "audience_present": "teen", "template_id": "1260:50561"},
+    {"event": "account_downgrade_new_account", "audience_present": "teen", "template_id": "1260:51286"}
+  ],
+  "duplicates": [
+    {"note": "Each email has a WEB (Gmail inbox template, ~1024w) render AND one or more MOBILE (~375w) renders of the SAME copy. Only one row per email is kept in 'emails' above; the sibling render ids are recorded in each row's notes. Web<->mobile sibling ids: card_shipped 44957(web)/45497? ; card_unlocked 45207(web) ; card_locked 45896(web) ; card_canceled 45562(mobile)+45650(web) ; pin_changed 45321(web) ; card_replaced 45449(web)+45497(mobile) ; phone 46212(web) ; backup_fi 49710(web)+49639(mobile) ; account_restricted teen 50088(web)+50008(mobile), parent 51195(mobile) ; password 50783(mobile) ; device 50848(mobile)+51043(web) ; login 50977(mobile)+51143(web) ; privacy 50914(mobile)+51093(web) ; verify_email 50561(mobile)+50646(web) ; downgrade 51286(mobile)."},
+    {"note": "card_replaced and card_shipped share the SUBJECT 'Your new card is on its way!' but are distinct emails (different hero + preheader + body)."}
+  ],
+  "out_of_scope_notifications": [
+    {"type": "push_notification_lockscreen", "template_family": "Notification banner - Account frozen (many instances across the board, e.g. 1260:45706, 1260:46011)", "observed_copy": ["Your debit card is unlocked. You can now use it to spend your Venmo balance.", "You or Judy temporarily locked your debit card. You won’t be able to use it until either of you unlock it."], "notes": "These are iOS lock-screen push-notification mocks, NOT emails. Dozens of 'Notification banner - Account frozen' instances are scattered between the email columns (they share a generic component name regardless of the copy shown). Captured here for completeness; excluded from the email set."}
+  ]
+}

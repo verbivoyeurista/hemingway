@@ -1,0 +1,386 @@
+{
+  "generated_note": "Golden set for Hemingway tone profiles. golden=in the prescriptive subset. The marks are Brittney's editorial call (the authorship).",
+  "teen_source": "furlough (Figma)",
+  "parent_source": "parent_emails_v3 (Downloads)",
+  "events": [
+    {
+      "event": "card_locked",
+      "label": "Card locked",
+      "teen": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "teen-user",
+          "direct-address",
+          "calm",
+          "update"
+        ],
+        "closer": "Card transactions will be declined until Judy unlocks it.",
+        "why": "Names the parent as the actor ('Judy locked'); calm, no blame. Clean teen register.",
+        "copy": {
+          "subject": "Your debit card is locked",
+          "preheader": "You can’t use the card ending in -xxxx right now.",
+          "hero": "Judy locked your debit card.",
+          "body": "Card transactions will be declined until Judy unlocks it."
+        },
+        "source": "1260:45896"
+      },
+      "parent": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "about-the-teen",
+          "calm",
+          "update"
+        ],
+        "closer": "In the meantime, [teen_name] can still send and receive payments in the Venmo app.",
+        "why": "Same event, overseer frame ('You locked [teen_name]'s'); reassures the parent the teen isn't cut off.",
+        "copy": {
+          "subject": "[teen_name]'s debit card is locked",
+          "preheader": "Card transactions will be declined until it's unlocked.",
+          "hero": "",
+          "body": "You locked [teen_name]'s debit card.\n\nTo use the card ending in [card_last_four] again, go to Card Settings to unlock it. In the meantime, [teen_name] can still send and receive payments in the Venmo app."
+        },
+        "source": "Downloads/debit_card_locked.json"
+      }
+    },
+    {
+      "event": "card_unlocked",
+      "label": "Card unlocked",
+      "teen": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "reassure",
+          "celebrate",
+          "teen-user",
+          "playful",
+          "update"
+        ],
+        "closer": "You can use your debit card again. 🤘🙌🖖",
+        "why": "Emoji closer is the compact tone tell -- voice held (warm), teen register (playful).",
+        "copy": {
+          "subject": "Your debit card is unlocked",
+          "preheader": "The card ending in {{ last_four }} is now unlocked.",
+          "hero": "Judy unlocked your debit card.",
+          "body": "You can use your debit card again. 🤘🙌🖖"
+        },
+        "source": "1260:45207"
+      },
+      "parent": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "about-the-teen",
+          "calm",
+          "update"
+        ],
+        "closer": "",
+        "why": "Overseer-side of the same relief. Pairs cleanly against teen.",
+        "copy": {
+          "subject": "You unlocked [teen_name]'s debit card",
+          "preheader": "They can make card purchases again.",
+          "hero": "",
+          "body": "The card ending in [card_last_four] is unlocked."
+        },
+        "source": "Downloads/debit_card_unlocked.json"
+      }
+    },
+    {
+      "event": "account_restricted",
+      "label": "Account restricted",
+      "teen": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "reassure",
+          "alert",
+          "teen-user",
+          "direct-address",
+          "calm",
+          "high-stakes",
+          "needs-action"
+        ],
+        "closer": "For help getting up and running again, ask your parent or guardian to contact us.",
+        "why": "Highest-stakes flex: alarming event, calm reassuring voice, routes teen to guardian. Best demo pair.",
+        "copy": {
+          "subject": "Your activity has been flagged",
+          "preheader": "You won’t be able to use your debit card.",
+          "hero": "Your access to the Venmo app and debit card have been restricted.",
+          "body": "For help getting up and running again, ask your parent or guardian to contact us.\n\nAbout account restriction:\n• Flagging activity helps keep Venmo a safe place for all users.\n• To protect the account and prevent fraud, we can only provide a limited amount of info about a restricted account without talking to the account owner.\n• Security alerts are usually triggered by activity that goes against our User Agreement."
+        },
+        "source": "1260:50088"
+      },
+      "parent": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "alert",
+          "parent-overseer",
+          "about-the-teen",
+          "calm",
+          "high-stakes",
+          "needs-action"
+        ],
+        "closer": "For help unlocking your accounts, give us a call.",
+        "why": "Same alert, authority-to-adult register. (NB source typo 'been been restricted' -- fix if used verbatim.)",
+        "copy": {
+          "subject": "Your Venmo accounts have been restricted",
+          "preheader": "",
+          "hero": "Activity on your account for Lucas triggered an alert.",
+          "body": "For security reasons, this account and any linked accounts have been been restricted. For help unlocking your accounts, give us a call.\n\nAbout account restriction:\n• Flagging activity helps keep Venmo a safe place for all users.\n• To protect your account and prevent fraud, we can only provide a limited amount of information about a restricted account without talking to you.\n• Security alerts are usually triggered by activity that goes against our User Agreement."
+        },
+        "source": "1260:51195"
+      }
+    },
+    {
+      "event": "card_canceled",
+      "label": "Card canceled",
+      "teen": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "teen-user",
+          "calm",
+          "high-stakes",
+          "needs-action"
+        ],
+        "closer": "Not sure why? Your parent or guardian might have more info.",
+        "why": "Soft close that defers authority to the guardian without alarm -- textbook teen register.",
+        "copy": {
+          "subject": "Your card was canceled",
+          "preheader": "Your Teen Debit Card can no longer be used.",
+          "hero": "Your Venmo Teen Debit Card is canceled.",
+          "body": "Not sure why?\nYour parent or guardian might have more info."
+        },
+        "source": "1260:45562"
+      },
+      "parent": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "about-the-teen",
+          "calm",
+          "needs-action"
+        ],
+        "closer": "If you didn't request this or have questions, contact us.",
+        "why": "Overseer confirmation; the actor is 'you'.",
+        "copy": {
+          "subject": "You canceled [teen_name]'s debit card",
+          "preheader": "They can no longer make card purchases or access the balance.",
+          "hero": "",
+          "body": "You canceled [teen_name]'s Venmo Teen Debit Card.\n\n[teen_name] can no longer use the card or access the Venmo balance in the app. If you didn't request this or have questions, contact us."
+        },
+        "source": "Downloads/debit_card_canceled.json"
+      }
+    },
+    {
+      "event": "pin_changed",
+      "label": "PIN changed",
+      "teen": {
+        "golden": true,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "teen-user",
+          "direct-address",
+          "playful",
+          "update"
+        ],
+        "closer": "Already have it? You rock and can ignore this email.",
+        "why": "'You rock' closer = sparing, earned delight in teen register. Strong voice-held tell.",
+        "copy": {
+          "subject": "You have a new debit card PIN",
+          "preheader": "The PIN for the debit card ending in {{ last_four }} was changed.",
+          "hero": "Judy changed your debit card PIN.",
+          "body": "Don’t forget to get the new PIN from Judy. Already have it? You rock and can ignore this email."
+        },
+        "source": "1260:45321"
+      },
+      "parent": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "update"
+        ],
+        "closer": "",
+        "why": "Check parent copy is not thinner than teen before promoting.",
+        "copy": {
+          "subject": "You changed [teen_name]'s debit card PIN",
+          "preheader": "Make sure you share the new PIN with them.",
+          "hero": "",
+          "body": "The PIN was updated on the card ending in [card_last_four]."
+        },
+        "source": "Downloads/debit_card_pin_changed.json"
+      }
+    },
+    {
+      "event": "card_shipped",
+      "label": "Card shipped",
+      "teen": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "celebrate",
+          "teen-user",
+          "playful",
+          "milestone"
+        ],
+        "closer": "Where will you use it first?",
+        "why": "Nice milestone energy but carries placeholder address block -- clean before use.",
+        "copy": {
+          "subject": "Your debit card is on its way!",
+          "preheader": "Where will you use it first?",
+          "hero": "Hooray! Your card should arrive by March 5, 2022.",
+          "body": "We sent it to:\n3606 Egale Drive, Apt 123\nWashtenaw, MI 48104\n\nOnce it arrives, ask your parent or guardian to activate it via their app.\n\nIf it hasn’t arrived a few days after the expected date, tell them to let us know."
+        },
+        "source": "1260:44957"
+      },
+      "parent": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "milestone"
+        ],
+        "closer": "",
+        "why": "",
+        "copy": {
+          "subject": "[teen_name]'s debit card is on the way",
+          "preheader": "It should arrive by [arrival_date].",
+          "hero": "",
+          "body": "[teen_name]'s debit card is on the way to [mailing_address].\n\nIf the address looks wrong or [teen_name] didn't request a card, contact us. If it doesn't arrive by [arrival_date], let us know."
+        },
+        "source": "Downloads/debit_card_sent.json"
+      }
+    },
+    {
+      "event": "card_activated",
+      "label": "Card activated",
+      "teen": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "celebrate",
+          "teen-user",
+          "milestone"
+        ],
+        "closer": "Remember—even though the card is yours, Judy can still see your transactions and lock your card.",
+        "why": "Good 'yours-but-supervised' line; candidate if a milestone pair is wanted.",
+        "copy": {
+          "subject": "Your card is activated",
+          "preheader": "You can start spending!",
+          "hero": "Your Venmo Debit Card is now activated.",
+          "body": "Remember—even though the card is yours, Judy can still see your transactions and lock your card."
+        },
+        "source": "1260:45079"
+      },
+      "parent": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "milestone"
+        ],
+        "closer": "",
+        "why": "",
+        "copy": {
+          "subject": "[teen_name]'s debit card is ready to use",
+          "preheader": "They can use it anywhere Mastercard is accepted.",
+          "hero": "",
+          "body": "[teen_name]'s debit card is activated."
+        },
+        "source": "Downloads/debit_card_active.json"
+      }
+    },
+    {
+      "event": "card_replaced",
+      "label": "Card replaced / reissued",
+      "teen": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "teen-user",
+          "update"
+        ],
+        "closer": "",
+        "why": "Placeholder address block; lower demo value than locked/unlocked.",
+        "copy": {
+          "subject": "Your new card is on its way!",
+          "preheader": "The replacement card is arriving soon.",
+          "hero": "Your replacement card will arrive by March 5, 2022.",
+          "body": "We sent it to:\n3606 Egale Drive, Apt 123\nWashtenaw, MI 48104\n\nIf your card doesn’t arrive by March 5 or something seems off (wrong name, say, or neither you nor your parent or guardian requested a new card) have them contact us."
+        },
+        "source": "1260:45449"
+      },
+      "parent": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "parent-overseer",
+          "update"
+        ],
+        "closer": "",
+        "why": "",
+        "copy": {
+          "subject": "[teen_name]'s replacement card is on the way",
+          "preheader": "It should arrive by [arrival_date].",
+          "hero": "",
+          "body": "[teen_name]'s replacement card is on its way to [mailing_address].\n\nIf you didn't request a replacement or the address looks wrong, contact us. If it doesn't arrive by [arrival_date], let us know."
+        },
+        "source": "Downloads/debit_card_reissued.json"
+      }
+    },
+    {
+      "event": "backup_fi_added",
+      "label": "Backup FI added",
+      "teen": {
+        "golden": false,
+        "excluded": false,
+        "facets": [
+          "inform",
+          "teen-user",
+          "update"
+        ],
+        "closer": "Go to the app to view or edit this change.",
+        "why": "Teen copy is fine but generic.",
+        "copy": {
+          "subject": "You added a [credit card]",
+          "preheader": "You can use this as a backup payment method.",
+          "hero": "You added the <credit card/debit card/bank account> ending in <last four numbers> as a payment method.",
+          "body": "Go to the app to view or edit this change."
+        },
+        "source": "1260:49710"
+      },
+      "parent": {
+        "golden": false,
+        "excluded": true,
+        "facets": [],
+        "closer": "",
+        "why": "OUT: furlough parent version is an empty STUB (body never written). Shipped != good. Downloads venmo_teen_fi_added shown instead.",
+        "copy": {
+          "subject": "[teen_name] added a [fi_type]",
+          "preheader": "A [fi_type] ending in [fi_last_four] is now a payment method.",
+          "hero": "",
+          "body": "If you didn't authorize this, contact us to remove it."
+        },
+        "source": "Downloads/venmo_teen_fi_added.json"
+      }
+    }
+  ]
+}

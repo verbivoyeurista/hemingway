@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hemingway · compositional demo</title>
+<style>
+  :root{--bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--line:#2a2f3d;--ink:#e7e9ee;--dim:#9aa1b1;
+        --teen:#7c5cff;--parent:#2bb3a3;--gold:#f4c04d;--muted:#6b7280;--accent:#7c5cff;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  header{padding:34px 26px 10px;max-width:1040px;margin:0 auto}
+  header h1{font-size:23px;margin:0 0 8px;letter-spacing:.2px}
+  header .thesis{color:var(--dim);font-size:14.5px;max-width:800px}
+  header .thesis b{color:var(--ink)}
+  .legend{max-width:1040px;margin:14px auto 0;padding:0 26px;display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--dim)}
+  .legend span{border:1px solid var(--line);border-radius:20px;padding:4px 11px}
+  .legend .held{border-color:#3a4a6b;color:#9db4e0}
+  .legend .flexed{border-color:#6b4b1f;color:var(--gold)}
+  main{max-width:1040px;margin:0 auto;padding:18px 26px 100px}
+  .ev{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:20px 0;padding:20px 22px}
+  .ev.hero{border-color:#4a3f7a;box-shadow:0 0 0 1px #4a3f7a, 0 8px 40px -18px #7c5cff88}
+  .evhd{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .evhd .name{font-size:17px;font-weight:650}
+  .evhd .axis{font-size:11.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+  .facts{color:#cbd0dc;font-size:13.5px;margin:6px 0 16px;padding:10px 12px;background:#12141c;border-radius:9px;border:1px solid var(--line)}
+  .facts .k{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:3px}
+  .stage{border-radius:11px;padding:13px 15px;border:1px solid var(--line)}
+  .stage.neutral{background:#14161d;opacity:.82}
+  .stage.neutral .copy{color:#aab; font-style:italic}
+  .stage.voice{background:#161a26;border-color:#33406b}
+  .stage.tone{background:#161a26;border-color:#5a4a2a}
+  .stagelab{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+  .tag{font-size:10px;letter-spacing:.3px;padding:2px 7px;border-radius:20px;border:1px solid var(--line);color:var(--muted);text-transform:none}
+  .tag.held{border-color:#3a4a6b;color:#9db4e0}
+  .tag.flexed{border-color:#6b4b1f;color:var(--gold)}
+  .copy{font-size:15px;line-height:1.5}
+  .down{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.5px;padding:7px 0;text-transform:uppercase}
+  .variants{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+  .var{background:#12141c;border:1px solid var(--line);border-radius:9px;padding:12px 13px}
+  .var.star{border-color:var(--gold)}
+  .vhd{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+  .vlab{font-size:12px;font-weight:600;color:var(--dim)}
+  .badge{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:20px}
+  .tone-calm{background:#123330;color:#7fe0d3;border:1px solid #1d5a52}
+  .tone-playful{background:#241d43;color:#b9a7ff;border:1px solid #3a2f6b}
+  .var .copy{font-size:14px}
+  .tells{margin:9px 0 0;padding-left:16px;color:var(--dim);font-size:11.5px;line-height:1.5}
+  .tells li{margin:1px 0}
+  .flexnote{margin-top:15px;padding:11px 14px;background:#12141c;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:13px;color:#cdd3e0}
+  footer{max-width:1040px;margin:0 auto;padding:0 26px 60px;color:var(--muted);font-size:11.5px}
+  @media(max-width:720px){.variants{grid-template-columns:1fr}}
+</style></head><body>
+<header>
+  <h1>Hemingway — same facts, watch what the knowledge adds</h1>
+  <p class="thesis">Same facts. Neutral has no knowledge base. +Voice adds who Venmo is (held constant). +Tone adds how Venmo flexes (by audience, or by how the writer signals the moment).</p>
+</header>
+<div class="legend">
+  <span>neutral = knowledge base <b>out of the room</b></span>
+  <span class="held">+ voice = who Venmo is · <b>held</b></span>
+  <span class="flexed">+ tone = how Venmo flexes · <b>diverges</b></span>
+</div>
+<main>
+<section class="ev">
+  <div class="evhd">
+    <span class="name">Card locked</span>
+    <span class="axis">flexes by audience</span>
+  </div>
+  <div class="facts"><span class="k">the facts</span>A parent locked the teen&#x27;s Venmo debit card. It can&#x27;t be used for purchases until it&#x27;s unlocked. The teen can still send and receive money in the app.</div>
+
+  <div class="stage neutral">
+    <div class="stagelab">neutral <span class="tag">no knowledge base</span></div>
+    <div class="copy">This debit card has been locked and cannot be used for purchases until it is unlocked. Sending and receiving payments remains available.</div>
+  </div>
+  <div class="down">+ voice</div>
+  <div class="stage voice">
+    <div class="stagelab">+ voice <span class="tag held">held — identical for both</span></div>
+    <div class="copy">Your debit card is locked, so it can&#x27;t be used for purchases right now. You can still send and receive money in the app.</div>
+  </div>
+  <div class="down">+ tone</div>
+  <div class="stage tone">
+    <div class="stagelab">+ tone <span class="tag flexed">flexed — diverges</span></div>
+    <div class="variants"><div class="var">
+      <div class="vhd"><span class="vlab">→ teen</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">Judy locked your debit card. Card transactions will be declined until Judy unlocks it — you can still send and receive money in the app.</div>
+      <ul class="tells"><li>names the guardian as the actor — no blame</li><li>calm, factual</li><li>voice held: 2nd person, contraction, plain</li></ul>
+    </div><div class="var">
+      <div class="vhd"><span class="vlab">→ parent</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">You locked [teen]&#x27;s debit card. In the meantime, they can still send and receive payments in the Venmo app.</div>
+      <ul class="tells"><li>&#x27;you&#x27; = the actor (overseer frame)</li><li>about the teen, not to them</li><li>dry closer, no emoji</li></ul>
+    </div></div>
+  </div>
+
+  <div class="flexnote">Voice is identical. Tone is calm for both — but the FRAME mirrors: the teen is told a guardian acted on them; the parent is told they acted. Same fact, opposite point of view.</div>
+</section>
+<section class="ev hero">
+  <div class="evhd">
+    <span class="name">Card unlocked</span>
+    <span class="axis">flexes by audience</span>
+  </div>
+  <div class="facts"><span class="k">the facts</span>A parent unlocked the teen&#x27;s debit card. It can be used for purchases again.</div>
+
+  <div class="stage neutral">
+    <div class="stagelab">neutral <span class="tag">no knowledge base</span></div>
+    <div class="copy">This debit card has been unlocked and can be used for purchases again.</div>
+  </div>
+  <div class="down">+ voice</div>
+  <div class="stage voice">
+    <div class="stagelab">+ voice <span class="tag held">held — identical for both</span></div>
+    <div class="copy">Your debit card is unlocked, so you can use it for purchases again.</div>
+  </div>
+  <div class="down">+ tone</div>
+  <div class="stage tone">
+    <div class="stagelab">+ tone <span class="tag flexed">flexed — diverges</span></div>
+    <div class="variants"><div class="var">
+      <div class="vhd"><span class="vlab">→ teen</span><span class="badge tone-playful">playful</span></div>
+      <div class="copy">Judy unlocked your debit card. You can use your debit card again. 🤘🙌🖖</div>
+      <ul class="tells"><li>emoji closer — the compact tone tell</li><li>relief earns a little warmth</li><li>voice held: still 2nd person, plain</li></ul>
+    </div><div class="var">
+      <div class="vhd"><span class="vlab">→ parent</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">You unlocked [teen]&#x27;s debit card. They can make card purchases again.</div>
+      <ul class="tells"><li>calm, dry — no emoji</li><li>about the teen</li><li>same relief, restrained register</li></ul>
+    </div></div>
+  </div>
+
+  <div class="flexnote">★ The split. +Voice is one line, shared by both. +Tone diverges: the teen earns the emoji and the lift (playful); the parent gets the same news, calm and dry. Voice held, tone flexed.</div>
+</section>
+<section class="ev">
+  <div class="evhd">
+    <span class="name">Account restricted (security flag)</span>
+    <span class="axis">flexes by audience</span>
+  </div>
+  <div class="facts"><span class="k">the facts</span>The account was restricted after activity was flagged. The app and debit card can&#x27;t be used. Resolving it means contacting Venmo — a teen routes through a parent/guardian; a parent calls.</div>
+
+  <div class="stage neutral">
+    <div class="stagelab">neutral <span class="tag">no knowledge base</span></div>
+    <div class="copy">This account has been restricted due to flagged activity. The Venmo app and debit card cannot be used until the restriction is resolved.</div>
+  </div>
+  <div class="down">+ voice</div>
+  <div class="stage voice">
+    <div class="stagelab">+ voice <span class="tag held">held — identical for both</span></div>
+    <div class="copy">Your access to the Venmo app and debit card is restricted right now. We flag activity like this to keep Venmo safe — here&#x27;s how to get it sorted.</div>
+  </div>
+  <div class="down">+ tone</div>
+  <div class="stage tone">
+    <div class="stagelab">+ tone <span class="tag flexed">flexed — diverges</span></div>
+    <div class="variants"><div class="var">
+      <div class="vhd"><span class="vlab">→ teen</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">Your access to the Venmo app and debit card have been restricted. For help getting up and running again, ask your parent or guardian to contact us.</div>
+      <ul class="tells"><li>calm on an alarming event — reassure, don&#x27;t alarm</li><li>routes the teen up to a guardian</li><li>voice holds under pressure</li></ul>
+    </div><div class="var">
+      <div class="vhd"><span class="vlab">→ parent</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">Activity on [teen]&#x27;s account triggered an alert, so this account and any linked accounts are restricted. For help unlocking your accounts, give us a call.</div>
+      <ul class="tells"><li>adult-to-adult authority register</li><li>actionable: call us</li><li>calm, no blame</li></ul>
+    </div></div>
+  </div>
+
+  <div class="flexnote">The stress test: the VOICE holds even when the event is scary. Tone stays calm for both (reassure-don&#x27;t-alarm) — what flexes is the ROUTE: teen → ask your guardian; parent → call us.</div>
+</section>
+<section class="ev hero">
+  <div class="evhd">
+    <span class="name">Account restricted (age) — the reframe</span>
+    <span class="axis">flexes by framing</span>
+  </div>
+  <div class="facts"><span class="k">the facts</span>The teen signed up for an adult account but doesn&#x27;t meet the age requirements, so it&#x27;s restricted. To continue they close it and set up a teen account from their parent&#x27;s invite. (The account is inactive during the downgrade — so this is really an onboarding fail-state.)</div>
+
+  <div class="stage neutral">
+    <div class="stagelab">neutral <span class="tag">no knowledge base</span></div>
+    <div class="copy">This account does not meet the age requirements and has been restricted. To continue, close it and set up a new account.</div>
+  </div>
+  <div class="down">+ voice</div>
+  <div class="stage voice">
+    <div class="stagelab">+ voice <span class="tag held">held — identical for both</span></div>
+    <div class="copy">Your account doesn&#x27;t meet the age requirements, so it&#x27;s been restricted. Close it and you can set up the right one.</div>
+  </div>
+  <div class="down">+ tone</div>
+  <div class="stage tone">
+    <div class="stagelab">+ tone <span class="tag flexed">flexed — diverges</span></div>
+    <div class="variants"><div class="var">
+      <div class="vhd"><span class="vlab">signaled as needs_action</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">Your account has been restricted because you don&#x27;t meet the age requirements. Close this account to continue — you&#x27;ll need to set up a new one.</div>
+      <ul class="tells"><li>framed as a cold compliance restriction</li><li>calm, correct, no warmth</li><li>the honest &#x27;bad news&#x27; reading</li></ul>
+    </div><div class="var star">
+      <div class="vhd"><span class="vlab">signaled as onboarding ★</span><span class="badge tone-calm">calm</span></div>
+      <div class="copy">Your old account has been restricted, but you have a new one waiting. Close it to get started — then use the invite your parent or guardian sent. Why the restriction? You don&#x27;t meet the age requirements for your existing account.</div>
+      <ul class="tells"><li>reframed with a path forward — not a dead end</li><li>acknowledges the bad moment without fake cheer</li><li>stays calm and plain — the system knows NOT to be playful here</li></ul>
+    </div></div>
+  </div>
+
+  <div class="flexnote">The restraint beat: same bad news. Cold as a needs_action compliance restriction; steady with a path forward as an onboarding — but never playful. The intelligence is knowing the ceiling: a kid aged out is a genuinely bad experience, so warmth here means a clear way forward, not delight.</div>
+</section>
+</main>
+<footer>
+  voice: venmo_voice_extracted.json (fingerprinted baseline) · tone: tone_profiles.json (hand-marked golden set) — controlled ablation, not a live competitor.
+</footer>
+</body></html>

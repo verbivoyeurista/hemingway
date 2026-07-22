@@ -1,31 +1,54 @@
 :root {
-  /* Seattle Spring (light mode) */
-  --bg: #F5ECE9;
-  --bg-alt: #EDE3DE;
-  --surface: #F7F3EF;
-  --border: #D8CEC8;
-  --text-primary: #4B6153;
-  --text-secondary: #88968A;
-  --text-muted: #9DAF9A;
-  --accent: #B9A5B1;
-  --accent-dark: #957A8B;
-  --tag-bg: #4B6153;
-  --tag-text: #F5ECE9;
+  /* March comes in like a lion — "the Kawamoto kitchen" (light) */
+  --bg: #FAF4ED;
+  --bg-alt: #ECE3D4;
+  --surface: #F2EBE0;
+  --border: #D9CFC0;
+  --text-primary: #2B1F1A;
+  --text-secondary: #6B5D54;
+  --text-muted: #8C7F73;
+  --accent: #B85C3E;
+  --accent-dark: #9C4A30;
+  --pink: #B06A85;
+  --sage: #5E7A5E;
+  --tag-bg: #2B1F1A;
+  --tag-text: #FAF4ED;
 
   /* Pass/fail derived from the palette */
   --pass: var(--text-primary);
   --fail: var(--accent-dark);
 
   /* Type stacks */
-  --font-serif: "DM Serif Display", Georgia, serif;
-  --font-sans: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: Georgia, 'Times New Roman', serif;
+  --font-mono: 'DM Mono', monospace;
 
   --max-width: 720px;
 }
 
+html[data-theme="dark"] {
+  /* March — "Rei alone, somewhere in winter" (dark) */
+  --bg: #1A1B23;
+  --bg-alt: #2A2C38;
+  --surface: #232530;
+  --border: #353748;
+  --text-primary: #E8E4DC;
+  --text-secondary: #9A958C;
+  --text-muted: #7C776E;
+  --accent: #E8A4C4;
+  --accent-dark: #D48CB0;
+  --pink: #E8A4C4;
+  --sage: #8FA88F;
+  --tag-bg: #E8A4C4;
+  --tag-text: #1A1B23;
+}
+
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  text-transform: lowercase;
 }
 
 html, body {
@@ -52,6 +75,7 @@ h1 {
   font-family: var(--font-serif);
   font-size: 2.75rem;
   font-weight: 400;
+  font-style: italic;
   letter-spacing: -0.01em;
   color: var(--text-primary);
   margin: 0 0 0.5rem;
@@ -75,12 +99,12 @@ section {
 
 label {
   display: block;
-  font-family: var(--font-sans);
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-weight: 400;
   font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-secondary);
+  color: var(--pink);
   margin-bottom: 0.5rem;
 }
 
@@ -147,7 +171,7 @@ button:disabled {
 .status {
   margin: 0.875rem 0 0;
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: var(--sage);
   font-style: italic;
   min-height: 1.25em;
 }
@@ -161,12 +185,12 @@ button:disabled {
 }
 
 h2 {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
+  text-transform: lowercase;
+  color: var(--pink);
   margin: 0 0 1rem;
 }
 
@@ -225,7 +249,7 @@ footer {
 
 .meta {
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: var(--sage);
   margin: 0;
   font-style: italic;
 }
@@ -238,3 +262,9 @@ code {
   border-radius: 3px;
   color: var(--text-primary);
 }
+
+.toggle{position:fixed;top:1.4rem;right:1.4rem;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--surface);border:1px solid var(--border);padding:.45rem .8rem;cursor:pointer;font-size:.72rem;
+  color:var(--text-primary);transition:all .3s ease;font-family:'DM Mono',monospace;letter-spacing:.05em}
+.toggle:hover{border-color:var(--accent)}
+.toggle-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);transition:background .3s ease}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hemingway · system map</title>
+<style>
+  :root{--bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--line:#2a2f3d;--ink:#e7e9ee;--dim:#9aa1b1;
+        --teen:#7c5cff;--parent:#2bb3a3;--gold:#f4c04d;--muted:#6b7280;--accent:#7c5cff;--lock:#3a4a6b;--live:#2bb3a3;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  h1{font-size:22px;margin:0 0 4px} h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  main{max-width:1120px;margin:0 auto;padding:30px 26px 90px}
+  .sub{color:var(--dim);font-size:13.5px;margin-bottom:4px}
+  .lode{display:inline-block;font-size:12px;color:var(--gold);border:1px solid #6b5a1f;border-radius:20px;padding:3px 11px;margin-top:8px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--dim);margin-top:14px}
+  .legend b{color:var(--ink);font-weight:600}
+  /* stack */
+  .stack{display:flex;flex-direction:column;gap:7px}
+  .grp-lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin:6px 0 2px}
+  .layer{display:grid;grid-template-columns:30px 150px 1fr 92px 120px;align-items:center;gap:12px;
+         background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+  .layer.lock{border-left:3px solid var(--lock)}
+  .layer.tog{border-left:3px solid var(--gold)}
+  .layer .ico{font-size:16px;text-align:center}
+  .layer .nm{font-weight:650}
+  .layer .ds{color:var(--dim);font-size:12.5px}
+  .scope{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:2px 6px;text-align:center}
+  .art{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;text-align:right}
+  .st-ui{color:var(--live)} .st-file{color:var(--dim)} .st-none{color:#c0603a} .st-vault{color:#b9a7ff}
+  /* pipeline */
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+  .node{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 12px;min-width:120px}
+  .node .t{font-weight:600;font-size:12.5px} .node .f{font-family:ui-monospace,Menlo,monospace;font-size:10px;color:var(--dim);margin-top:2px}
+  .node.tool{border-style:dashed;border-color:var(--accent)}
+  .node.ui{border-color:var(--live)}
+  .arr{display:flex;align-items:center;color:var(--muted);padding:0 8px;font-size:15px}
+  .track{margin-bottom:14px}
+  .track .tl{font-size:11px;color:var(--dim);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+  /* ontology */
+  .onto{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .box h3{margin:0 0 8px;font-size:14px} .box .m{color:var(--dim);font-size:12px}
+  .facets{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .facet{font-size:11px;border:1px solid var(--line);border-radius:14px;padding:3px 9px;color:var(--dim)}
+  .edge{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#9db4e0;margin-top:3px}
+  /* inventory */
+  .inv{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+  .inv .cat{grid-column:1/-1;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-top:8px}
+  .file{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:12px}
+  .file .fn{font-family:ui-monospace,Menlo,monospace;font-size:11px}
+  .file .fd{color:var(--dim);font-size:11px;margin-top:2px}
+  .badge{float:right;font-size:9.5px;padding:1px 6px;border-radius:10px;border:1px solid var(--line)}
+  .b-ui{color:var(--live);border-color:#1d5a52} .b-file{color:var(--dim)} .b-none{color:#c0603a;border-color:#5a3320} .b-vault{color:#b9a7ff;border-color:#3a2f6b}
+  /* spine */
+  .spine{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .prin{background:#12141c;border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:12px;color:#cdd3e0}
+</style></head><body>
+<main>
+  <h1>Hemingway — system map</h1>
+  <div class="sub">everything we have, what's built, and what lives under what.</div>
+  <span class="lode">Lode (engine) › Hemingway (tenant)</span>
+  <div class="legend">
+    <span>🔒 <b>locked</b> layer (always on)</span>
+    <span>🔘 <b>toggleable</b> layer (the demo spotlight)</span>
+    <span><b class="st-ui">▮ has UI</b></span>
+    <span><b class="st-file">▮ file only</b></span>
+    <span><b class="st-vault">▮ in Wren's vault</b></span>
+    <span><b class="st-none">▮ not built</b></span>
+  </div>
+
+  <h2>1 · The composition stack — what lives under what</h2>
+  <div class="sub" style="margin-bottom:12px">Top = surface-facing &amp; variable. Bottom = foundation &amp; universal. The things "under" voice/tone/user are the locked layers.</div>
+  <div class="stack">
+    <div class="grp-lab">🔘 toggleable — the spotlight (tap to see each layer's contribution)</div>
+    <div class="layer tog"><div class="ico">🔘</div><div class="nm">Situation</div><div class="ds">the event / signal — what happened (drives tone)</div><div class="scope">input</div><div class="art st-file">event facets</div></div>
+    <div class="layer tog"><div class="ico">🔘</div><div class="nm">User / Profile</div><div class="ds">audience register — teen ⇄ parent</div><div class="scope">audience</div><div class="art st-file">tone_profiles.json</div></div>
+    <div class="layer tog"><div class="ico">🔘</div><div class="nm">Tone</div><div class="ds">the moment's register (calm / playful / neutral) — composed from signal</div><div class="scope">moment</div><div class="art st-file">tone_profiles.json</div></div>
+    <div class="layer tog"><div class="ico">🔘</div><div class="nm">Voice</div><div class="ds">brand linguistic fingerprint — who Venmo is</div><div class="scope">brand</div><div class="art st-file">venmo_voice_extracted.json</div></div>
+    <div class="grp-lab">🔒 locked — the substrate (can't turn these off)</div>
+    <div class="layer lock"><div class="ico">🔒</div><div class="nm">Brand profile</div><div class="ds">strategic identity — mission, values, personality (voice is derived from this)</div><div class="scope">brand</div><div class="art st-none">not built</div></div>
+    <div class="layer lock"><div class="ico">🔒</div><div class="nm">UX / content style guide</div><div class="ds">needs-stack, required / prohibited content, accessibility, reading level</div><div class="scope">content</div><div class="art st-vault">in vault canon</div></div>
+    <div class="layer lock"><div class="ico">🔒</div><div class="nm">Compliance</div><div class="ds">legal / regulatory — disclaimers, consent</div><div class="scope">engine</div><div class="art st-none">not built</div></div>
+    <div class="layer lock"><div class="ico">🔒</div><div class="nm">Mechanics</div><div class="ds">universal house style — em-dash sparingly &amp; unspaced, sentence case</div><div class="scope">engine</div><div class="art st-file">element_facets.md</div></div>
+  </div>
+
+  <h2>2 · The pipeline — how the layers get made</h2>
+  <div class="track">
+    <div class="tl">voice track — DERIVED (fingerprinted from the corpus)</div>
+    <div class="flow">
+      <div class="node"><div class="t">Corpus</div><div class="f">venmo_strings.txt · 6,894</div></div>
+      <div class="arr">→</div>
+      <div class="node tool"><div class="t">fingerprint</div><div class="f">(curated extraction)</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">Voice profile</div><div class="f">venmo_voice_extracted.json</div></div>
+    </div>
+  </div>
+  <div class="track">
+    <div class="tl">tone track — AUTHORED (hand-marked golden set)</div>
+    <div class="flow">
+      <div class="node"><div class="t">Teen + parent emails</div><div class="f">furlough · parent_emails_v3</div></div>
+      <div class="arr">→</div>
+      <div class="node ui"><div class="t">Marker 🖥️</div><div class="f">golden_marker_v2.html</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">Golden set</div><div class="f">golden_set.json</div></div>
+      <div class="arr">→</div>
+      <div class="node tool"><div class="t">derive</div><div class="f">derive_tone_profiles.py</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="t">Tone profiles</div><div class="f">tone_profiles.json</div></div>
+    </div>
+  </div>
+  <div class="track">
+    <div class="tl">generate — COMPOSE (voice held, tone flexed)</div>
+    <div class="flow">
+      <div class="node"><div class="t">Voice + Tone + Facets</div><div class="f">the knowledge</div></div>
+      <div class="arr">→</div>
+      <div class="node tool"><div class="t">generator</div><div class="f">generate.py</div></div>
+      <div class="arr">→</div>
+      <div class="node ui"><div class="t">Composed email 🖥️</div><div class="f">demo.html</div></div>
+      <div class="arr">·</div>
+      <div class="node tool"><div class="t">validate</div><div class="f">analyze_tone_residual.py</div></div>
+    </div>
+  </div>
+
+  <h2>3 · The ontology — what an output <i>is</i></h2>
+  <div class="onto">
+    <div class="box">
+      <h3>Element <span class="m">— the atom (surface-agnostic)</span></h3>
+      <div class="m">carries the facets, in 6 groups:</div>
+      <div class="facets">
+        <span class="facet">I · Payload</span><span class="facet">II · Semantics</span><span class="facet">III · Expression</span>
+        <span class="facet">IV · Stakes &amp; Reader</span><span class="facet">V · Structure</span><span class="facet">VI · Anatomy</span>
+      </div>
+      <div class="m" style="margin-top:10px">composition edges:</div>
+      <div class="edge">tone ← signal + profile</div>
+      <div class="edge">priority ← stakes + reversibility</div>
+      <div class="edge">required/prohibited ← stakes + compliance + trust</div>
+    </div>
+    <div class="box">
+      <h3>Surface <span class="m">— where elements render</span></h3>
+      <div class="m">email · screen · web page · push · SMS</div>
+      <div class="m" style="margin-top:12px"><b style="color:var(--ink)">email</b> = element(s) +</div>
+      <div class="facets">
+        <span class="facet">header / subject</span><span class="facet">subhead / preheader</span>
+        <span class="facet">sender</span><span class="facet">recipient</span>
+      </div>
+      <div class="m" style="margin-top:12px;color:var(--muted)">defined in element_facets.md · FACET_COVERAGE.md</div>
+    </div>
+  </div>
+
+  <h2>4 · Everything we have</h2>
+  <div class="inv">
+    <div class="cat">data / corpus</div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">venmo_strings.txt</span><div class="fd">6,894 shipped strings (voice corpus)</div></div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">furlough_emails_extracted.json</span><div class="fd">teen email source</div></div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">parent_emails_v3/</span><div class="fd">parent email source</div></div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">golden_set.json</span><div class="fd">the marked prescriptive subset</div></div>
+
+    <div class="cat">profiles (the "Venmo profile")</div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">venmo_voice_extracted.json</span><div class="fd">voice: fingerprint + 7 principles</div></div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">tone_profiles.json</span><div class="fd">tone: teen + parent</div></div>
+    <div class="file"><span class="badge b-none">todo</span><span class="fn">brand_profile</span><div class="fd">strategic identity — not built</div></div>
+
+    <div class="cat">ontology / docs</div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">element_facets.md</span><div class="fd">element ontology + scope ladder + mechanics</div></div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">FACET_COVERAGE.md</span><div class="fd">what's covered / missing</div></div>
+    <div class="file"><span class="badge b-file">file</span><span class="fn">DEMO_SPEC.md</span><div class="fd">the interactive demo spec</div></div>
+
+    <div class="cat">tools (the pipeline)</div>
+    <div class="file"><span class="badge b-ui">UI</span><span class="fn">build_golden_marker_v2.py → .html</span><div class="fd">the marking surface</div></div>
+    <div class="file"><span class="badge b-file">tool</span><span class="fn">derive_tone_profiles.py</span><div class="fd">golden set → tone profiles</div></div>
+    <div class="file"><span class="badge b-file">tool</span><span class="fn">analyze_tone_residual.py</span><div class="fd">validates which facets earn a chip</div></div>
+    <div class="file"><span class="badge b-file">tool</span><span class="fn">generate.py</span><div class="fd">composes neutral → voice → tone</div></div>
+    <div class="file"><span class="badge b-ui">UI</span><span class="fn">build_demo.py → demo.html</span><div class="fd">the ablation surface</div></div>
+
+    <div class="cat">surfaces (the UIs — what a human can see)</div>
+    <div class="file"><span class="badge b-ui">UI</span><span class="fn">golden_marker_v2.html</span><div class="fd">mark the golden set</div></div>
+    <div class="file"><span class="badge b-ui">UI</span><span class="fn">demo.html</span><div class="fd">neutral → voice → tone</div></div>
+    <div class="file"><span class="badge b-none">todo</span><span class="fn">interactive demo</span><div class="fd">the layer-toggle demo — to build</div></div>
+
+    <div class="cat">canon (Wren's vault — the source of truth)</div>
+    <div class="file"><span class="badge b-vault">vault</span><span class="fn">facet_schedule_v0 + notes 021–028</span><div class="fd">the committed 9-facet schedule</div></div>
+    <div class="file"><span class="badge b-vault">vault</span><span class="fn">004/014 tone·signal·voice</span><div class="fd">decided doctrine (signal → tone)</div></div>
+    <div class="file"><span class="badge b-vault">vault</span><span class="fn">025 stakes · 028 monitoring</span><div class="fd">stakes + the monitoring signal</div></div>
+  </div>
+
+  <h2>5 · The spine — principles under all of it</h2>
+  <div class="spine">
+    <span class="prin">composition over assertion</span>
+    <span class="prin">voice held / tone flexed</span>
+    <span class="prin">signal determines tone</span>
+    <span class="prin">derive (fingerprint) vs author (mark)</span>
+    <span class="prin">shipped ≠ good</span>
+    <span class="prin">decomposition emerges from use</span>
+    <span class="prin">accuracy lies in the errors</span>
+  </div>
+</main>
+</body></html>

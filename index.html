@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JSON Patterns as Content Mechanisms</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <button class="toggle" id="theme-toggle" aria-label="toggle light/dark">
+    <span class="toggle-dot"></span><span id="toggle-label">light</span>
+  </button>
   <main>
     <header>
       <h1>JSON Patterns as Content Mechanisms</h1>
@@ -55,5 +58,13 @@
 
   <script src="config.js"></script>
   <script src="app.js"></script>
+  <script>(function(){
+    var root=document.documentElement,label=document.getElementById('toggle-label');
+    var saved=null;try{saved=localStorage.getItem('brv-theme')}catch(e){}
+    var initial=saved||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    set(initial);
+    function set(t){root.setAttribute('data-theme',t);if(label)label.textContent=t;try{localStorage.setItem('brv-theme',t)}catch(e){}}
+    document.getElementById('theme-toggle').addEventListener('click',function(){set(root.getAttribute('data-theme')==='dark'?'light':'dark')});
+  })();</script>
 </body>
 </html>
